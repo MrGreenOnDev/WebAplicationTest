@@ -20,5 +20,7 @@ jobs:
     - name: Push Docker Image 
       uses: docker/build-push-action@v1
       with:
+        username: ${{ secrets.DOCKER_HUB_USER}}
+        password: ${{ secrets.DOCKER_HUB_PASS}}
         dockerfile: ./WebApplication1/Dockerfile
         tags: latest
