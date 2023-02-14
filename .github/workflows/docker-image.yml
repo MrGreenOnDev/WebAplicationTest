@@ -15,10 +15,4 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file ..\..\WebApplication1\Dockerfile --tag my-image-name:$(date +%s)
-
-    - name: Push Docker Image 
-      uses: docker/build-push-action@v1
-      with:
-        dockerfile: ..\..\WebApplication1\Dockerfile
-        tags: latest
+      run: docker build . --file ./WebApplication1/Dockerfile --tag my-image-name:$(date +%s)
