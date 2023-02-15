@@ -15,4 +15,12 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file ./WebApplication1/Dockerfile --tag my-image-name:$(date +%s)
+      run: docker build . --file ./WebApplication1/Dockerfile -t ProdImage:$(date +%s)
+
+    - name: Push Docker Image 
+      uses: docker/build-push-action@v1
+      with:
+        username: ${{ secrets.DOCKER_HUB_USER}}
+        password: ${{ secrets.DOCKER_HUB_PASS}}
+        dockerfile: ./WebApplication1/Dockerfile
+        tags: latest
