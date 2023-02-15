@@ -2,9 +2,9 @@ name: Docker Image Staging(Test)
 
 on:
   push:
-    branches: [ "Staging" ]
+    branches: [ "staging" ]
   pull_request:
-    branches: [ "Staging" ]
+    branches: [ "staging" ]
 
 jobs:
 
