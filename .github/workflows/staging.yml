@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: staging
     - name: Build the Docker image
       run: docker build . --file ./WebApplication1/Dockerfile -t stagingimage/backend:$(date +%s)
 

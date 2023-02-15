@@ -15,7 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file ./WebApplication1/Dockerfile -t prodimage:$(date +%s)
+      run: docker build . --file ./WebApplication1/Dockerfile -t prodimage/backend:$(date +%s)
 
     - name: Push Docker Image 
       uses: docker/build-push-action@v1
