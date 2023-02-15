@@ -24,6 +24,7 @@ jobs:
       uses: docker/build-push-action@v1
       with:
         build-args: ASPNETCORE_ENVIRONMENT=Development
+        args: ASPNETCORE_ENVIRONMENT=Development
         username: ${{ secrets.DOCKER_HUB_USER}}
         password: ${{ secrets.DOCKER_HUB_PASS}}
         dockerfile: ./WebApplication1/Dockerfile
