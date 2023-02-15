@@ -15,7 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file ./WebApplication1/Dockerfile -t stagingimage:$(date +%s)
+      run: docker build . --file ./WebApplication1/Dockerfile -t stagingimage/backend:$(date +%s)
 
     - name: Push Docker Image 
       uses: docker/build-push-action@v1
@@ -23,4 +23,4 @@ jobs:
         username: ${{ secrets.DOCKER_HUB_USER}}
         password: ${{ secrets.DOCKER_HUB_PASS}}
         dockerfile: ./WebApplication1/Dockerfile
-        tags: staging/latest
+        tags: latest
