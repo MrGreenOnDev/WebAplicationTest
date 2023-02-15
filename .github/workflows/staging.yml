@@ -6,9 +6,6 @@ on:
   pull_request:
     branches: [ "Staging" ]
 
-env:
-  ASPNETCORE_ENVIRONMENT: Staging
-
 jobs:
 
   build-and-deploy:

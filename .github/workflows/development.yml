@@ -6,9 +6,6 @@ on:
     branches: [ "development" ]
 
 
-env:
-    ASPNETCORE_ENVIRONMENT: Development
-
 jobs:
 
   build-and-deploy:
