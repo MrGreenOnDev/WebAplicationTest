@@ -1,10 +1,13 @@
-name: Docker Image CI-Staging
+name: Docker Image Staging(Test)
 
 on:
   push:
     branches: [ "Staging" ]
   pull_request:
     branches: [ "Staging" ]
+
+env:
+  ASPNETCORE_ENVIRONMENT: Staging
 
 jobs:
 
@@ -23,4 +26,4 @@ jobs:
         username: ${{ secrets.DOCKER_HUB_USER}}
         password: ${{ secrets.DOCKER_HUB_PASS}}
         dockerfile: ./WebApplication1/Dockerfile
-        tags: latest
+        tags: Test
