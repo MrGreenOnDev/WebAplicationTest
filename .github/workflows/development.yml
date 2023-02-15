@@ -17,7 +17,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file ./WebApplication1/Dockerfile --build-arg ASPNETCORE_ENVIRONMENT=$ASPNETCORE_ENVIRONMENT  -t developmentimage/backend:$(date +%s)
+      run: docker build . --file ./WebApplication1/Dockerfile --build-arg ASPNETCORE_ENVIRONMENT=Development  -t developmentimage/backend:$(date +%s)
 
     - name: Push Docker Image 
       uses: docker/build-push-action@v1
