@@ -5,8 +5,9 @@ on:
   pull_request:
     branches: [ "development" ]
 
+
 env:
-  ASPNETCORE_ENVIRONMENT: Development
+    ASPNETCORE_ENVIRONMENT: Development
 
 jobs:
 
@@ -17,11 +18,12 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file ./WebApplication1/Dockerfile --build-arg ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}  -t developmentimage/backend:$(date +%s)
+      run: docker build . --file ./WebApplication1/Dockerfile -t developmentimage/backend:$(date +%s)
 
     - name: Push Docker Image 
       uses: docker/build-push-action@v1
       with:
+        build-args: ASPNETCORE_ENVIRONMENT=Development
         username: ${{ secrets.DOCKER_HUB_USER}}
         password: ${{ secrets.DOCKER_HUB_PASS}}
         dockerfile: ./WebApplication1/Dockerfile
